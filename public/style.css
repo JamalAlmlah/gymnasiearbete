@@ -5,6 +5,7 @@ color: red;
 body {
 margin: 0;
 
+
 }
 
 .header {
@@ -29,7 +30,7 @@ margin: 0;
   font-weight: bold;
 }
 
-.header a:hover {
+.header-right a:hover {
   background-color: #ddd;
   color: black;
 }
@@ -59,14 +60,55 @@ margin: 0;
   left: 0;
   bottom: 0;
   width: 100%;
-  height: 3%;
+  height: 4%;
   background-color: rgb(53, 57, 63);
   color: white;
   text-align: center;
-  line-height: 3%
+  line-height: 4%
 }
 p.footer {
   text-align: center;
   font-size: 16px ;
 
+}
+
+.logo:hover {
+  background: #aca5a5;
+}
+textarea {
+
+height: 400px;
+width: 1000px;
+
+}
+.form{
+width: 1100px;
+margin: 50px auto;
+
+
+}
+.box{
+width: 200px;
+height: 600px;
+border: 5px solid black;
+margin: 50px 50px 0 50px;
+text-align: center;
+
+}
+img {
+  width: 150px;
+  height: 150px;
+}
+.erbjudande-container{
+display: flex;
+
+}
+.company-title{
+  text-align: center;
+}
+.link-text{
+  font-size: 25px;
+  font-weight: bold;
+  text-decoration: none;
+color: black;
 }
