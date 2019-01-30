@@ -1,3 +1,6 @@
+* {
+  box-sizing: border-box;
+}
 p {
 color: red;
 
@@ -9,9 +12,10 @@ margin: 0;
 }
 
 .header {
-  overflow: hidden;
+ /* overflow: hidden; */
   background-color: #aca5a5;
   padding: 20px 10px;
+height: 80px;
 }
 
 .header a {
@@ -111,4 +115,52 @@ display: flex;
   font-weight: bold;
   text-decoration: none;
 color: black;
+}
+.controlpanel-box{
+  
+  margin: 50px auto;
+border: 5px solid black;
+width: 1100px;
+padding: 50px;
+}
+.controlpanel-box2{
+  margin: 5px auto;
+  border: 2px solid black;
+  width: 1000px;
+}
+
+.sidenav {
+  display: inline-block;
+  height: 675px;
+  width: 160px;
+  background-color: #111;
+  padding-top: 20px;
+
+}
+
+.sidenav a {
+  padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+}
+
+.sidenav a:hover {
+  color: #f1f1f1;
+}
+
+.main {
+  margin-left: 160px; /* Same as the width of the sidenav */
+  font-size: 28px; /* Increased text to enable scrolling */
+  padding: 0px 10px;
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+.maincp  {
+  display: inline-block;
+  float: right;
+  width: 1300px;
 }

@@ -11,13 +11,19 @@ app.get("/", (request, response) => {
 app.get("/sida2", (request, response) => {
   response.render("second");
 });
-app.get("/skapaerbjudande", (request, response) => {
-  response.render("skapaerbjudande");
+app.get("/controlpanel/skapaerbjudande", (request, response) => {
+  response.render("skapaerbjudande", { layout: "cp" });
 });
 app.get("/company", (request, response) => {
   response.render("company");
 });
-app.get("/controlpanel/deals", (request, response) => {
-response.render("controlpaneldeals");
+app.get("/controlpanel/erbjudande", (request, response) => {
+  response.render("erbjudande", { layout: "cp" });
+});
+app.get("/controlpanel", (request, response) => {
+  response.render("controlpanel", { layout: "cp"});
+});
+app.get("/controlpanel/meddelande", (request, response) => {
+response.render("meddelande", {layout: "cp"});
 });
 app.listen(1111, () => console.log("Application running on port 1111"));
