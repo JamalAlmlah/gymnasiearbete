@@ -8,6 +8,10 @@ app.set("view engine", "handlebars");
 app.get("/", (request, response) => {
   response.render("home");
 });
+app.post("/skapaerbjudande", (request, response) => {
+  console.log('body', request.body);
+  response.sendStatus(204);
+});
 app.get("/sida2", (request, response) => {
   response.render("second");
 });
