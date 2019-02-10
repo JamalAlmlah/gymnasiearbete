@@ -1,27 +1,9 @@
-<div class ="erbjudande-container"> 
+<div class ="erbjudande-container">
+{{#each deals}}
 <div class ="box"> 
-<a href ="company" class ="link-text"> Ikea </a> <br />
+<a href ="/company/{{fnamn}}" class ="link-text"> {{title}} </a> <br />
 <img src ="/static/img/ikea.jpeg">
-<p> Ikea </p>
+<p> {{text}} </p>
 </div> 
-<div class ="box"> 
-<h1>exempel 1 </h1>
-<img src ="#">
-<p> ingen viktig </p>
-</div>
-<div class ="box"> 
-<h1>exempel 1 </h1>
-<img src ="#">
-<p> ingen viktig </p>
-</div>
-<div class ="box"> 
-<h1>exempel 1 </h1>
-<img src ="#">
-<p> ingen viktig </p>
-</div>
-<div class ="box"> 
-<h1>exempel 1 </h1>
-<img src ="#">
-<p> ingen viktig </p>
-</div>
+{{/each}}
 </div>

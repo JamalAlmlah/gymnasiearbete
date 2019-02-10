@@ -1,29 +1,11 @@
-<h1 class = "company-title"> Ikea </h1> 
+<div class ="erbjudande-container">
+<h1 class = "company-title"> {{fnamn}} </h1> 
 
-<div class ="erbjudande-container"> 
+{{#each deals}}
 <div class ="box"> 
-<h1>Ikea </h1>
+<p class ="link-text"> {{title}} </p> <br />
 <img src ="/static/img/ikea.jpeg">
-<p> Ikea </p>
+<p> {{text}} </p>
 </div> 
-<div class ="box"> 
-<h1>exempel 1 </h1>
-<img src ="#">
-<p> ingen viktig </p>
-</div>
-<div class ="box"> 
-<h1>exempel 1 </h1>
-<img src ="#">
-<p> ingen viktig </p>
-</div>
-<div class ="box"> 
-<h1>exempel 1 </h1>
-<img src ="#">
-<p> ingen viktig </p>
-</div>
-<div class ="box"> 
-<h1>exempel 1 </h1>
-<img src ="#">
-<p> ingen viktig </p>
-</div>
+{{/each}}
 </div>

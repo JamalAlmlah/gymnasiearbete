@@ -1,18 +1,21 @@
 * {
   box-sizing: border-box;
+
 }
 p {
 color: red;
+font-family: 'Slabo 27px', serif;
+
 
 }
 body {
 margin: 0;
-
+font-family: 'Slabo 27px', serif;
+ background: url("/static/img/bk home.jpg");
 
 }
 
 .header {
- /* overflow: hidden; */
   background-color: #aca5a5;
   padding: 20px 10px;
 height: 80px;
@@ -93,7 +96,7 @@ margin: 50px auto;
 }
 .box{
 width: 200px;
-height: 600px;
+height: 550px;
 border: 5px solid black;
 margin: 50px 50px 0 50px;
 text-align: center;
@@ -163,4 +166,65 @@ padding: 50px;
   display: inline-block;
   float: right;
   width: 1300px;
+}
+input,
+.btn {
+  text-align: center;
+  width: 500px;
+  padding: 12px;
+  border: solid 1px;
+  border-radius: 4px;
+  margin: 5px 0 auto;
+  opacity: 0.85;
+  display: inline-block;
+  font-size: 17px;
+  line-height: 20px;
+  text-decoration: none; 
+  
+}
+
+body.login-page {
+  background-image: url("/static/img/bk.jpg");
+  text-align: center;
+  }
+  input[type=submit] {
+    background-color: #4CAF50;
+    color: white;
+    cursor: pointer;
+  }
+
+.login-text{
+  font-family: 'Slabo 27px', serif;
+font-size: 30px;
+color: #212529;
+font-weight: bold;
+
+}
+  .login-form {
+    padding: 50px;
+    height: 500px;
+    border: solid 1px;
+    width: 700px;
+    margin: 50px auto;
+    background-color:rgba(71, 155, 250, 0.322);
+}
+.fas{
+font-size: 90px;
+color: #212529;
+margin: 20px auto;
+
+}
+.login-icon{
+  margin: 0 auto;
+  border-radius: 50%;
+  border: solid 2px #212529;
+  width: 130px;
+  height: 130px;
+  background-color: white;
+}
+.ico {
+font-size: 10px;
+height: 30px;
+width: 30px;
+
 }
