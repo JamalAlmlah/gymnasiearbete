@@ -1,22 +1,16 @@
 <div class="controlpanel-box">
 <div class ="controlpanel-box2"> 
-<p> företagets namn: </p> 
-<button> Ta bort</button>
-<button> ändra </button>
+{{#each deals}}
+
+<div class="row">
+  <div class="column">
+<p class ="link-text"> {{title}} </p>
+<div class="erbjudande-button">
+<a class="tabort-button" href = "/controlpanel/erbjudande/tabort/{{_id}}"> Ta bort </a>
+<a class="tabort-button" href = "/controlpanel/erbjudande/edit/{{_id}}"> Ändra </a>
 </div>
-<div class ="controlpanel-box2"> 
-<p> företagets namn: </p> 
-<button> Ta bort</button>
-<button> ändra </button>
-</div>
-<div class ="controlpanel-box2"> 
-<p> företagets namn: </p> 
-<button> Ta bort</button>
-<button> ändra </button>
-</div>
-<div class ="controlpanel-box2"> 
-<p> företagets namn: </p> 
-<button> Ta bort</button>
-<button> ändra </button>
-</div>
+  </div>
+ 
+
+{{/each}}
 </div>

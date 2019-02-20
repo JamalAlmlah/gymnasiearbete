@@ -14,11 +14,18 @@ font-family: 'Slabo 27px', serif;
  background: url("/static/img/bk home.jpg");
 
 }
+.button{
+margin: 5px auto; 
+
+}
 
 .header {
-  background-color: #aca5a5;
+  background-color: #30537a;
   padding: 20px 10px;
 height: 80px;
+width: 100%;
+z-index: 1000;
+position: fixed;
 }
 
 .header a {
@@ -63,15 +70,15 @@ height: 80px;
   }
 }
 .footer {
-  position: absolute;
+  position: fixed;
   left: 0;
   bottom: 0;
   width: 100%;
-  height: 4%;
-  background-color: rgb(53, 57, 63);
+  height: 2%;
+  background-color: #30537a;
   color: white;
   text-align: center;
-  line-height: 4%
+  padding: 15px;
 }
 p.footer {
   text-align: center;
@@ -90,7 +97,7 @@ width: 1000px;
 }
 .form{
 width: 1100px;
-margin: 50px auto;
+margin: 90px auto;
 
 
 }
@@ -98,7 +105,7 @@ margin: 50px auto;
 width: 200px;
 height: 550px;
 border: 5px solid black;
-margin: 50px 50px 0 50px;
+margin: 0 50px 0 50px;
 text-align: center;
 
 }
@@ -107,10 +114,20 @@ img {
   height: 150px;
 }
 .erbjudande-container{
-display: flex;
+  display: flex;
+  padding-top: 75px;
+  flex-direction: column;
+  align-items: center;
 
 }
+.company-container{
+width: 100%;
+display: flex;
+}
 .company-title{
+  margin: 20px auto;
+  color: black;
+  font-size: 25px;
   text-align: center;
 }
 .link-text{
@@ -121,14 +138,15 @@ color: black;
 }
 .controlpanel-box{
   
-  margin: 50px auto;
-border: 5px solid black;
+  margin: 90px auto;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 width: 1100px;
 padding: 50px;
+background-color: rgba(216, 194, 194, 0.034);
 }
 .controlpanel-box2{
   margin: 5px auto;
-  border: 2px solid black;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   width: 1000px;
 }
 
@@ -138,6 +156,8 @@ padding: 50px;
   width: 160px;
   background-color: #111;
   padding-top: 20px;
+  position: fixed;
+  margin-top: 80px;
 
 }
 
@@ -192,7 +212,24 @@ body.login-page {
     color: white;
     cursor: pointer;
   }
+.tabort-button{
+  background-color: #4CAF50;
+  color: white;
+  cursor: pointer;
+  text-decoration: none; 
+  width: 65px;
+  height: 30px;
+  padding: 7px;
+  border: solid 1px sienna;
+  border-radius: 4px;
+  margin: 5px 5px auto;
+  opacity: 0.85;
+  display: inline-block;
+  font-size: 17px;
+  text-decoration: none; 
+  text-align: center;
 
+}
 .login-text{
   font-family: 'Slabo 27px', serif;
 font-size: 30px;
@@ -227,4 +264,56 @@ font-size: 10px;
 height: 30px;
 width: 30px;
 
+}
+.kontakta-box{
+  display: flex;
+
+}
+
+.kontakta1 {
+  width: 1100px;
+  margin: 120px auto;
+  text-align: center
+
+}
+.fa {
+  padding: 20px;
+  font-size: 30px;
+  width: 50px;
+  text-align: center;
+  text-decoration: none;
+}
+
+/* Add a hover effect if you want */
+.fa:hover {
+  opacity: 0.7;
+}
+
+/* Set a specific color for each brand */
+
+.fa-facebook {
+  background: #3B5998;
+  color: white;
+}
+
+.fa-twitter {
+  background: #55ACEE;
+  color: white;
+}
+.logo-header{
+background-color: #30537a;
+font-size: 29px;
+display: inline-block;
+}
+.erbjudande-button{
+
+  flex-direction: row-reverse;
+  display: flex;
+}
+.column {
+  margin: 5px 0px 5px auto;
+  background-color:#aaa;
+  display: flex;
+  justify-content: space-between;
+align-items: center;
 }
