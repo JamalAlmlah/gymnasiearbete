@@ -9,18 +9,32 @@ font-family: 'Slabo 27px', serif;
 
 }
 body {
+background-color: #7d8ea0;
 margin: 0;
 font-family: 'Slabo 27px', serif;
- background: url("/static/img/bk home.jpg");
-
+background: url("/static/img/bk home.jpg") no-repeat;
+background-size: 100% 100%;
 }
 .button{
 margin: 5px auto; 
 
 }
+.sidenav-btn{
+display: block;
+  width: 160px;
+  height: auto;
+  border: 2px solid black;
+  margin: 6px auto;
+background: #4CAF50;
+color: white;
+font-size: 20px;
+text-align: center;
+line-height: 50px;
+text-decoration: none;
+}
 
 .header {
-  background-color: #30537a;
+  background-color: #020304;
   padding: 20px 10px;
 height: 80px;
 width: 100%;
@@ -30,7 +44,7 @@ position: fixed;
 
 .header a {
   float: left;
-  color: black;
+  color: white;
   text-align: center;
   padding: 12px;
   text-decoration: none;
@@ -45,12 +59,12 @@ position: fixed;
 }
 
 .header-right a:hover {
-  background-color: #ddd;
-  color: black;
+  background-color: rgb(113, 233, 117);
+  color: white;
 }
 
 .header a.active {
-  background-color: dodgerblue;
+  background-color: #4CAF50;
   color: white;
 }
 
@@ -75,7 +89,7 @@ position: fixed;
   bottom: 0;
   width: 100%;
   height: 2%;
-  background-color: #30537a;
+  background-color: #020304;
   color: white;
   text-align: center;
   padding: 15px;
@@ -103,10 +117,14 @@ margin: 90px auto;
 }
 .box{
 width: 200px;
-height: 550px;
-border: 5px solid black;
-margin: 0 50px 0 50px;
+height: 500px;
+box-shadow: 0 8px 8px 0 rgba(0, 0, 0, 0.274), 0 8px 24px 0 rgba(0, 0, 0, 0.19);
+
+border: 1px ridge black;
+margin: 0 50px 50px 50px;
 text-align: center;
+background: rgba(255, 255, 255, 0.747);
+
 
 }
 img {
@@ -114,6 +132,7 @@ img {
   height: 150px;
 }
 .erbjudande-container{
+  font-family: 'EB Garamond', serif;
   display: flex;
   padding-top: 75px;
   flex-direction: column;
@@ -121,8 +140,10 @@ img {
 
 }
 .company-container{
-width: 100%;
+width: 1500px;
+flex-wrap: wrap;
 display: flex;
+
 }
 .company-title{
   margin: 20px auto;
@@ -153,7 +174,7 @@ background-color: rgba(216, 194, 194, 0.034);
 .sidenav {
   display: inline-block;
   height: 675px;
-  width: 160px;
+  width: 180px;
   background-color: #111;
   padding-top: 20px;
   position: fixed;
@@ -161,12 +182,7 @@ background-color: rgba(216, 194, 194, 0.034);
 
 }
 
-.sidenav a {
-  padding: 6px 8px 6px 16px;
-  text-decoration: none;
-  font-size: 25px;
-  color: #818181;
-}
+
 
 .sidenav a:hover {
   color: #f1f1f1;
@@ -186,6 +202,7 @@ background-color: rgba(216, 194, 194, 0.034);
   display: inline-block;
   float: right;
   width: 1300px;
+  height: 100%;
 }
 input,
 .btn {
@@ -206,11 +223,30 @@ input,
 body.login-page {
   background-image: url("/static/img/bk.jpg");
   text-align: center;
+  background-size: auto;
   }
   input[type=submit] {
     background-color: #4CAF50;
     color: white;
     cursor: pointer;
+  }
+  .read-button{
+    background-color: #4CAF50;
+  color: white;
+  cursor: pointer;
+  text-decoration: none; 
+  width: 80px;
+  height: 30px;
+  padding: 7px;
+  border: solid 1px rgb(14, 13, 13);
+  border-radius: 4px;
+  margin: 5px 5px auto;
+  opacity: 0.85;
+  display: inline-block;
+  font-size: 17px;
+  text-decoration: none; 
+  text-align: center;
+
   }
 .tabort-button{
   background-color: #4CAF50;
@@ -239,7 +275,7 @@ font-weight: bold;
 }
   .login-form {
     padding: 50px;
-    height: 500px;
+    height: 650px;
     border: solid 1px;
     width: 700px;
     margin: 50px auto;
@@ -249,6 +285,15 @@ font-weight: bold;
 font-size: 90px;
 color: #212529;
 margin: 20px auto;
+
+}
+
+.registrera{
+  width: 1100px;
+  margin: 90px auto;
+  text-align: center;
+  padding: 20px;
+  font-size: 25px;
 
 }
 .login-icon{
@@ -273,7 +318,31 @@ width: 30px;
 .kontakta1 {
   width: 1100px;
   margin: 120px auto;
-  text-align: center
+  text-align: center;
+
+}
+.about-box{
+  padding: 110px;
+  width: 100%;
+  height: 200px;
+  background: #4CAF50;
+  z-index: 1000;
+  text-align: center;
+color: black;
+font-size: 20px;
+font-family: 'Srisakdi', cursive;
+
+}
+.about{
+  width: 900px;
+  margin: 120px auto;
+  text-align: center;
+  font-size: 16px;
+  font-family: 'Josefin Slab', serif;
+}
+.kontakta-text2{
+  font-family: 'Srisakdi', cursive;
+  font-size: 19px;
 
 }
 .fa {
@@ -301,9 +370,10 @@ width: 30px;
   color: white;
 }
 .logo-header{
-background-color: #30537a;
+background-color: #020304;
 font-size: 29px;
 display: inline-block;
+color: white;
 }
 .erbjudande-button{
 

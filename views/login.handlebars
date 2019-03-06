@@ -1,25 +1,16 @@
-<!DOCTYPE html> 
-<html>
-  <head>
-    <title> Login </title>
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-    <link rel="Stylesheet" href="/static/style.css">
-    <link href="https://fonts.googleapis.com/css?family=Slabo+27px" rel="stylesheet">
 
-  </head>
-
-  <body class="login-page"> 
-      <div class ="login-form" >
+<div class ="login-form" >
       <form action="/controlpanel/login" method="post" target="_blank">
+
       <p class ="login-text"> Admin Login </p>
      <div class ="login-icon">
       <i class="fas fa-user-tie"></i>
       </div>
     <br />
-      <input type="text" name="Admin" placeholder="UserName"><br>
+          <p> {{meddelande}} </p>
+<br />
+      <input type="text" name="UserName" placeholder="UserName"><br>
       <input type="text" name="Password" placeholder="Password"><br>
       <input type="submit" value="Logga in">
       </form>
       </div>
-  </body>
-</html>
