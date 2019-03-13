@@ -21,6 +21,8 @@
     "bcrypt": "^3.0.4",
     "express": "^4.16.4",
     "express-handlebars": "^3.0.0",
-    "mongodb": "^3.1.13"
+    "fs": "0.0.1-security",
+    "mongodb": "^3.1.13",
+    "multiparty": "^4.2.1"
   }
 }

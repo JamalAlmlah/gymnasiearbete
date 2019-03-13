@@ -4,6 +4,7 @@ const handlebars = require("express-handlebars");
 const bodyParser = require("./middlewares/bodyParser");
 const cookieParser = require("./middlewares/cookieParser");
 const bcrypt = require("bcrypt");
+const multiparty = require("multiparty");
 const app = express();
 const connect = require("./models/connect");
 app.use(bodyParser);
@@ -82,7 +83,7 @@ app.get("/controlpanel/erbjudande", async (request, response) => {
   const db = await connect();
   const collection = db.collection("deals");
   const dealspost = await collection.find().toArray();
-  if(request.cookies.admin) {
+  if(request.cookies && request.cookies.admin) {
     response.render("erbjudande", { deals: dealspost, layout: "cp" });
   } else {
   
@@ -91,11 +92,21 @@ app.get("/controlpanel/erbjudande", async (request, response) => {
   
 });
 app.post("/skapaerbjudande", async (request, response) => {
-  const deals = {
+  const form = new multiparty.Form(); 
+  form.on('part', part => {
+  if (!part.filename) {
+  part.resume();
+  }
+  part.pipe(fs.createWriteStream(`./public/uploads${part.filename}`));
+});
+  form.parse(request, async (err, fields, files) => {
+    const deals = {
     title: request.body.title,
     text: request.body.text,
     fnamn: request.body.fnamn
   };
+  console.log(fields);
+  console.log(err);
   const company = {
     namn: request.body.fnamn
   };
@@ -105,7 +116,7 @@ app.post("/skapaerbjudande", async (request, response) => {
   const companycollection = db.collection("company");
   await companycollection.insertOne(company);
   response.redirect("/controlpanel/skapaerbjudande");
-
+});
 });
 app.get("/controlpanel/skapaerbjudande", (request, response) => {
 
@@ -123,7 +134,8 @@ app.get("/kontakta", (request, response) => {
 });
 
 app.get("/controlpanel/logout", (request, response) => {
-response.set('Set-Cookie', 'admin=admin; expires=Thu, 01 Jan 1970 00:00;00 GMT') ;
+response.set('Set-Cookie', 'admin=admin; expires=Thu, 01 Jan 1970 00:00:00 GMT');
+response.redirect("/controlpanel/login");
 })
 
 app.get("/about", (request, response) => {
