@@ -18,6 +18,17 @@ const viewcompany = async (request, response) => {
     fnamn: dealspost[0].fnamn
   });
 }
+
+const viewDeal = async (request, response) => {
+  const id = request.params.id;
+  const db = await connect();
+  const collection = db.collection("deals");
+  const dealspost = await collection.find({ _id: ObjectID(id) }).toArray();
+  response.render("annonser", {
+    deals: dealspost,
+    fnamn: dealspost[0].fnamn
+  });
+}
 const viewlogout = (request, response) => {
   response.set('Set-Cookie', 'admin=admin; expires=Thu, 01 Jan 1970 00:00:00 GMT');
   response.redirect("/controlpanel/login");
@@ -26,4 +37,4 @@ const viewlogout = (request, response) => {
   viewkontakta = (request, response) => {
     response.render("Kontakta");
   }
-module.exports = {viewabout, viewlogin, viewcompany, viewlogout,viewkontakta };
+module.exports = {viewabout, viewlogin, viewcompany, viewlogout,viewkontakta, viewDeal};

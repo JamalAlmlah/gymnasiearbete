@@ -155,7 +155,7 @@ display: flex;
   font-size: 25px;
   font-weight: bold;
   text-decoration: none;
-color: black;
+color: rebeccapurple;
 }
 .controlpanel-box{
   
@@ -246,7 +246,6 @@ body.login-page {
   font-size: 17px;
   text-decoration: none; 
   text-align: center;
-
   }
 .tabort-button{
   background-color: #4CAF50;
@@ -357,9 +356,7 @@ font-family: 'Srisakdi', cursive;
 .fa:hover {
   opacity: 0.7;
 }
-
 /* Set a specific color for each brand */
-
 .fa-facebook {
   background: #3B5998;
   color: white;
@@ -387,3 +384,65 @@ color: white;
   justify-content: space-between;
 align-items: center;
 }
+.controlpanel-box3{
+width: 800px;
+height: 150%;
+display: flex;
+margin: 20px auto;
+flex-wrap: wrap;
+text-align: center;
+}
+.cp-box{
+width: 250px;
+height: 250px;
+background-color: black;
+margin: 80px 25px auto;
+}
+.cp-box-img{
+
+  width: 150px;
+  height: 150px;
+  padding: 2px;
+  margin: 40px auto;
+}
+
+.title-deal{
+margin: 2px auto;
+  font-size: 25px;
+  font-weight: bold;
+color: black;
+
+}
+
+.erbjudande-container-annons{
+
+  font-family: 'EB Garamond', serif;
+  display: flex;
+  padding-top: 75px;
+  flex-direction: column;
+  align-items: center;
+  width: 150px;
+}
+.box-annons{
+  width: 400px;
+  height: auto;
+  box-shadow: 0 8px 8px 0 rgba(0, 0, 0, 0.274), 0 8px 24px 0 rgba(0, 0, 0, 0.19);
+  border: 1px ridge black;
+  margin: 0 50px 50px 50px;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.747);
+}
+.company-container-annons{
+  margin: 50px auto;
+  width: 1500px;
+  flex-wrap: center;
+  display: flex;
+  justify-content: center;
+}
+
+.annons-bild{
+width: 200px;
+height: 200px;
+box-shadow: 0 8px 8px 0 rgba(0, 0, 0, 0.274), 0 8px 24px 0 rgba(0, 0, 0, 0.19);
+}
+

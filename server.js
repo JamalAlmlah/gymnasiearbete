@@ -8,10 +8,8 @@ const app = express();
 const connect = require("./models/connect");
 const {createUser,ucreateUser} = require("./controlers/user");
 const {createSession,viewmessage, viewcp } = require("./controlers/session");
-const {createDeals, editDeals, viewCreateDeals, viewDeals, VieweditDeal, viewDealscp, deletedeal} = require("./controlers/deals");
-const {viewabout, viewlogin, viewcompany, viewlogout} = require("./controlers/views");
-
-
+const {createDeals, editDeals, viewCreateDeals, viewDeals, vieweditDeals, viewDealscp, deletedeal} = require("./controlers/deals");
+const {viewabout, viewlogin, viewcompany, viewlogout, viewDeal} = require("./controlers/views");
 app.use(bodyParser);
 app.use(cookieParser);
 app.use("/static", express.static("public"));
@@ -31,7 +29,10 @@ app.get("/controlpanel/registrera", ucreateUser);
 app.get("/controlpanel", viewcp);
 app.get("/controlpanel/meddelande", viewmessage );
 app.get("/controlpanel/login", viewlogin);
-app.get("/company/:name", viewcompany );
+app.get("/company/:name", viewcompany);
+app.get("/annonser/:id", viewDeal);
 app.get("/controlpanel/erbjudande/tabort/:_id", deletedeal);
-app.get("/controlpanel/erbjudande/edit/:_id", vieweditDeal);
+app.get("/controlpanel/erbjudande/edit/:_id", vieweditDeals);
 app.listen(1111, () => console.log("Application running on port 1111"));
+
+

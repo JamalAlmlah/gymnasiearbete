@@ -1,25 +1,28 @@
-const multiparty = require("multiparty");
+const formidable = require("formidable");
 const connect = require("../models/connect");
 const ObjectID = require("mongodb").ObjectID;
+const fs = require('fs');
 
 const createDeals =  async (request, response) => {
-  const form = new multiparty.Form(); 
+  const form = new formidable.IncomingForm(); 
+  form.uploadDir = './public/uploads/';
+form.keepExtensions = true;
   form.on('part', part => {
-  if (!part.filename) {
-  part.resume();
-  }
-  part.pipe(fs.createWriteStream(`./public/uploads${part.filename}`));
 });
   form.parse(request, async (err, fields, files) => {
+    if (err) {
+    console.log(err.message);
+    return;
+    }
     const deals = {
-    title: request.body.title,
-    text: request.body.text,
-    fnamn: request.body.fnamn
+    title: fields.title,
+    text: fields.text,
+    fnamn: fields.fnamn,
+    bild: files.file.path.split("\\")[2],
+    excerpt: fields.text.slice(0,100),
   };
-  console.log(fields);
-  console.log(err);
   const company = {
-    namn: request.body.fnamn
+    namn: fields.fnamn
   };
   const db = await connect();
   const collection = db.collection("deals");
@@ -61,7 +64,7 @@ const viewCreateDeals = (request, response) => {
     });
   }
 
- const vieweditDeal =  async (request, response) => {
+ const vieweditDeals =  async (request, response) => {
     const edit = request.params._id;
     const db = await connect();
     const collection = db.collection("deals");
@@ -92,4 +95,5 @@ const viewCreateDeals = (request, response) => {
     response.redirect("/controlpanel/erbjudande");
   }
 
-module.exports = {createDeals, editDeals, viewCreateDeals, viewDeals, vieweditDeal, viewDealscp, deletedeal};
+
+module.exports = {createDeals, editDeals, viewCreateDeals, viewDeals, vieweditDeals, viewDealscp, deletedeal};

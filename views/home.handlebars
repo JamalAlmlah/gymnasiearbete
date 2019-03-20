@@ -4,10 +4,12 @@
 <div class="company-container">
 {{#each deals}}
 <div class ="box"> 
-<a href = "/company/{{fnamn}}" class ="link-text"> {{title}} </a> <br />
-<img src ="/static/img/ikea.jpeg">
-<p> {{text}} </p>
-<a href = "/company/{{fnamn}}" class ="read-button"> Läs mer </a> <br />
+<p class="title-deal" > {{title}} </p> 
+<a href = "/company/{{fnamn}}" class ="link-text"> {{fnamn}} </a> <br />
+
+<img  src ="/static/uploads/{{bild}}">
+<p> {{excerpt}} </p>
+<a href = "/annonser/{{_id}}" class ="read-button"> Läs mer </a> <br />
 </div> 
 {{/each}}
 </div>
