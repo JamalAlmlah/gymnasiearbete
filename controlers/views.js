@@ -5,9 +5,6 @@ const ObjectID = require("mongodb").ObjectID;
 const viewabout = (request, response) => {
   response.render("about");
 }
- const viewlogin = (request, response) => {
-  response.render("login", { layout: "login" });
-}
 const viewcompany = async (request, response) => {
   const name = request.params.name;
   const db = await connect();
@@ -37,4 +34,4 @@ const viewlogout = (request, response) => {
   viewkontakta = (request, response) => {
     response.render("Kontakta");
   }
-module.exports = {viewabout, viewlogin, viewcompany, viewlogout,viewkontakta, viewDeal};
+module.exports = {viewabout, viewcompany, viewlogout, viewkontakta, viewDeal};

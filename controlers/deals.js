@@ -45,6 +45,8 @@ const editDeals =  async (request, response) => {
   });
   const companycollection = db.collection("deals");
   response.redirect("/controlpanel/erbjudande");
+
+  
 };
 
 const viewCreateDeals = (request, response) => {
