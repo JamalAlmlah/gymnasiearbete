@@ -1,5 +1,6 @@
 const bcrypt = require("bcrypt");
 const connect = require("../models/connect");
+/* skapa en användare */ 
 const createUser = async (request, response) => {
   const saltRounds = 10;
   bcrypt.genSalt(saltRounds, function(err, salt) {
@@ -20,6 +21,7 @@ const createUser = async (request, response) => {
   });  
   
   }
+  /* skapa en användare " get " */ 
   const ucreateUser =  (request, response) => {
     if(request.cookies && request.cookies.admin) {
       response.render("registrera", {layout: "cp"});

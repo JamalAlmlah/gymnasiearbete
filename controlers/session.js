@@ -1,18 +1,18 @@
 const bcrypt = require("bcrypt");
 const connect = require("../models/connect");
 
+/* logga in sida */ 
 const createSession = async (request, response) => {
+  console.log(connect);
   const db = await connect();
   const collection = db.collection("users");
-  const login = await collection
-    .find({ username: request.body.UserName })
+  const login = await collection.find({ username: request.body.UserName })
     .toArray();
+
   bcrypt.compare(request.body.Password, login[0].password, function(
     err,
     res
-  ) {});
-  bcrypt.compare(request.body.Password, login[0].password, function(err, res) {
-    if (err) console.log(err);
+  ) {
     if (res) {
       response.set("Set-Cookie", "admin=true;");
       response.redirect("/controlpanel");
@@ -24,7 +24,7 @@ const createSession = async (request, response) => {
     }
   });
 };
-
+/* Lista på meddelande som vi får */ 
 const viewmessage = (request, response) => {
   if (request.cookies && request.cookies.admin) {
     response.render("meddelande", { layout: "cp" });
@@ -32,6 +32,7 @@ const viewmessage = (request, response) => {
     response.redirect("/controlpanel/login");
   }
 };
+/* controlpanel sida */ 
 const viewcp = (request, response) => {
   if (request.cookies && request.cookies.admin) {
     response.render("controlpanel", { layout: "cp" });
@@ -39,6 +40,7 @@ const viewcp = (request, response) => {
     response.redirect("/controlpanel/login");
   }
 };
+/* logga in sida */ 
 const viewlogin = (request, response) => {
   response.render("login", { layout: "login" });
 };

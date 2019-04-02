@@ -234,10 +234,9 @@ body.login-page {
     background-color: #4CAF50;
   color: white;
   cursor: pointer;
-  text-decoration: none; 
   width: 80px;
   height: 30px;
-  padding: 7px;
+  padding: 2px;
   border: solid 1px rgb(14, 13, 13);
   border-radius: 4px;
   margin: 5px 5px auto;
@@ -446,3 +445,13 @@ height: 200px;
 box-shadow: 0 8px 8px 0 rgba(0, 0, 0, 0.274), 0 8px 24px 0 rgba(0, 0, 0, 0.19);
 }
 
+#share-buttons img {
+  width: 45px; 
+  height: 45px;
+  padding: 5px; 
+  border: 0; 
+  box-shadow: 0; 
+  display: inline; 
+  }
+
+.

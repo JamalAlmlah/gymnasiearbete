@@ -19,6 +19,8 @@ const {
   deletedeal
 } = require("./controlers/deals");
 const {
+  skickakontakta,
+  viewkontakta,
   viewabout,
   viewcompany,
   viewlogout,
@@ -31,11 +33,11 @@ app.use(cookieParser);
 app.use("/static", express.static("public"));
 app.engine("handlebars", handlebars({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
-
 app.post("/controlpanel/registrera", createUser);
 app.post("/controlpanel/login", createSession);
 app.post("/controlpanel/erbjudande/edit/:_id", editDeals);
-app.post("/skapaerbjudande", createDeals);
+app.post("/controlpanel/skapaerbjudande", createDeals);
+app.post("/kontakta", skickakontakta);
 app.get("/controlpanel/erbjudande", viewDealscp);
 app.get("/controlpanel/skapaerbjudande", viewCreateDeals);
 app.get("/", viewDeals);
@@ -50,5 +52,4 @@ app.get("/company/:name", viewcompany);
 app.get("/annonser/:id", viewDeal);
 app.get("/controlpanel/erbjudande/tabort/:_id", deletedeal);
 app.get("/controlpanel/erbjudande/edit/:_id", vieweditDeals);
-
 app.listen(1111, () => console.log("Application running on port 1111"));

@@ -14,6 +14,6 @@ const bodyParser = (request, respone, next) => {
       next();
     });
   }
-  next();
+next();
 };
 module.exports = bodyParser;
