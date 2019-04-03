@@ -33,55 +33,45 @@ line-height: 50px;
 text-decoration: none;
 }
 
-.header {
-  background-color: #020304;
-  padding: 20px 10px;
-height: 80px;
+.header{
 width: 100%;
-z-index: 1000;
-position: fixed;
+height: 70px;
+display: flex;
+justify-content: space-between;
+background-color: black;
 }
-
-.header a {
-  float: left;
-  color: white;
-  text-align: center;
-  padding: 12px;
-  text-decoration: none;
-  font-size: 18px; 
-  line-height: 25px;
-  border-radius: 4px;
+.menu{
+  height: 70px;
+  width: 400px;
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
 }
-
-.header a.logo {
+.menu-buttons{
   font-size: 25px;
-  font-weight: bold;
+  text-decoration: none;
+  margin: 0 auto ;
+  padding: 0 10px;
+  height: 40px;
+  width: auto;
+  display: inline-block;
+  color: white
+
 }
 
-.header-right a:hover {
-  background-color: rgb(113, 233, 117);
+.menu-buttons:hover{
+background-color: #4CAF50;
+
+}
+.menu{
+display: flex;
+
+}
+
+p.logo{
   color: white;
-}
-
-.header a.active {
-  background-color: #4CAF50;
-  color: white;
-}
-
-.header-right {
-  float: right;
-}
-
-@media screen and (max-width: 500px) {
-  .header a {
-    float: none;
-    display: block;
-    text-align: left;
-  }
   
-  .header-right {
-    float: none;
-  }
+
 }
 .footer {
   position: fixed;
@@ -134,7 +124,7 @@ img {
 .erbjudande-container{
   font-family: 'EB Garamond', serif;
   display: flex;
-  padding-top: 75px;
+  padding-top: 10px;
   flex-direction: column;
   align-items: center;
 
@@ -370,6 +360,8 @@ background-color: #020304;
 font-size: 29px;
 display: inline-block;
 color: white;
+display: flex;
+align-items: center;
 }
 .erbjudande-button{
 
@@ -454,4 +446,3 @@ box-shadow: 0 8px 8px 0 rgba(0, 0, 0, 0.274), 0 8px 24px 0 rgba(0, 0, 0, 0.19);
   display: inline; 
   }
 
-.
