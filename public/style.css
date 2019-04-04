@@ -19,6 +19,13 @@ background-size: 100% 100%;
 margin: 5px auto; 
 
 }
+
+.search{
+width: 200px;
+height: 40px;
+margin: 2px auto;
+
+}
 .sidenav-btn{
 display: block;
   width: 160px;
@@ -42,20 +49,26 @@ background-color: black;
 }
 .menu{
   height: 70px;
-  width: 400px;
+  width: auto;
   align-items: center;
   display: flex;
   justify-content: space-between;
 }
 .menu-buttons{
+    color: white;
+    cursor: pointer;
+    border: solid 1px rgb(14, 13, 13);
+    border-radius: 4px;
+    margin: 5px auto;
   font-size: 25px;
   text-decoration: none;
-  margin: 0 auto ;
   padding: 0 10px;
   height: 40px;
   width: auto;
   display: inline-block;
-  color: white
+  padding-top: 5px;
+  text-align: center;
+  
 
 }
 
@@ -70,6 +83,7 @@ display: flex;
 
 p.logo{
   color: white;
+  margin: 0 5px 0 10px;
   
 
 }

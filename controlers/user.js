@@ -14,8 +14,13 @@ const createUser = async (request, response) => {
       const db = await connect();
    
       const collection = db.collection("users");
-    await collection.insertOne(user);
-    response.sendStatus(204);
+      try {
+        await collection.insertOne(user);
+        response.sendStatus(204);
+      } catch(e) {
+console.error(error);
+      }
+   
     });
     
   });  
