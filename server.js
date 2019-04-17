@@ -24,7 +24,8 @@ const {
   viewabout,
   viewcompany,
   viewlogout,
-  viewDeal
+  viewDeal,
+  search
 } = require("./controlers/views");
 const app = express();
 
@@ -52,4 +53,5 @@ app.get("/company/:name", viewcompany);
 app.get("/annonser/:id", viewDeal);
 app.get("/controlpanel/erbjudande/tabort/:_id", deletedeal);
 app.get("/controlpanel/erbjudande/edit/:_id", vieweditDeals);
+app.get("/search", search);
 app.listen(1111, () => console.log("Application running on port 1111"));

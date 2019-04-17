@@ -12,7 +12,6 @@ const createUser = async (request, response) => {
   
       }; 
       const db = await connect();
-   
       const collection = db.collection("users");
       try {
         await collection.insertOne(user);

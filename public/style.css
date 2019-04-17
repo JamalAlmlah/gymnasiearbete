@@ -9,11 +9,12 @@ font-family: 'Slabo 27px', serif;
 
 }
 body {
-background-color: #7d8ea0;
 margin: 0;
 font-family: 'Slabo 27px', serif;
 background: url("/static/img/bk home.jpg") no-repeat;
+background-color: #7C8D9F;
 background-size: 100% 100%;
+
 }
 .button{
 margin: 5px auto; 
@@ -21,9 +22,8 @@ margin: 5px auto;
 }
 
 .search{
-width: 200px;
-height: 40px;
-margin: 2px auto;
+width: 500px;
+height: 50px;
 
 }
 .sidenav-btn{
@@ -42,10 +42,24 @@ text-decoration: none;
 
 .header{
 width: 100%;
-height: 70px;
+height: 80px;
 display: flex;
 justify-content: space-between;
 background-color: black;
+position: absolute;
+}
+.header-1{
+
+  width: 100%;
+height: 80px;
+margin: 80px auto;
+display: flex;
+justify-content: space-between;
+background-color: #4CAF50;
+align-items: center;
+justify-content: center;
+align-content: center;
+position: absolute;
 }
 .menu{
   height: 70px;
@@ -81,10 +95,10 @@ display: flex;
 
 }
 
-p.logo{
+.logo{
   color: white;
   margin: 0 5px 0 10px;
-  
+  text-decoration: none;
 
 }
 .footer {
@@ -104,9 +118,6 @@ p.footer {
 
 }
 
-.logo:hover {
-  background: #aca5a5;
-}
 textarea {
 
 height: 400px;
@@ -120,12 +131,12 @@ margin: 90px auto;
 
 }
 .box{
-width: 200px;
-height: 500px;
+width: 215px;
+height: 455px;
 box-shadow: 0 8px 8px 0 rgba(0, 0, 0, 0.274), 0 8px 24px 0 rgba(0, 0, 0, 0.19);
 
 border: 1px ridge black;
-margin: 0 50px 50px 50px;
+margin: 0 35px 50px 50px;
 text-align: center;
 background: rgba(255, 255, 255, 0.747);
 
@@ -138,10 +149,24 @@ img {
 .erbjudande-container{
   font-family: 'EB Garamond', serif;
   display: flex;
-  padding-top: 10px;
+  padding-top: 160px;
   flex-direction: column;
   align-items: center;
+}
+.pris{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+height: 40px;
+width: 80px;
+text-align: center;
+background-color: #4CAF50;
+margin: 20px auto;
 
+}
+.pris-font{
+color: white;
+font-size: 20px;
 }
 .company-container{
 width: 1500px;
@@ -161,6 +186,21 @@ display: flex;
   text-decoration: none;
 color: rebeccapurple;
 }
+
+.search-button{
+  width: 70px;
+padding: 2px;
+height: 50px;
+cursor: pointer;
+border: solid 1px rgb(14, 13, 13);
+border-radius: 4px;
+margin: 2px 0 0 0;
+
+}
+.search-button:hover{
+  background-color: white;
+}
+
 .controlpanel-box{
   
   margin: 90px auto;
@@ -177,12 +217,15 @@ background-color: rgba(216, 194, 194, 0.034);
 
 .sidenav {
   display: inline-block;
-  height: 675px;
+  height: 111%;
   width: 180px;
-  background-color: #111;
+  background-color: black;
   padding-top: 20px;
-  position: fixed;
+  position: absolute;
   margin-top: 80px;
+  margin-bottom: 0 auto;
+  top: 0;
+  bottom: 0;
 
 }
 
@@ -228,8 +271,9 @@ body.login-page {
   background-image: url("/static/img/bk.jpg");
   text-align: center;
   background-size: auto;
+
   }
-  input[type=submit] {
+  .submit {
     background-color: #4CAF50;
     color: white;
     cursor: pointer;
@@ -319,7 +363,7 @@ width: 30px;
 
 .kontakta1 {
   width: 1100px;
-  margin: 120px auto;
+  margin: 100px auto;
   text-align: center;
 
 }
@@ -374,8 +418,11 @@ background-color: #020304;
 font-size: 29px;
 display: inline-block;
 color: white;
+text-decoration: none;
 display: flex;
 align-items: center;
+  margin: 0 5px 0 10px;
+  
 }
 .erbjudande-button{
 
@@ -440,6 +487,7 @@ color: black;
 .company-container-annons{
   margin: 50px auto;
   width: 1500px;
+  padding-top: 80px;
   flex-wrap: center;
   display: flex;
   justify-content: center;

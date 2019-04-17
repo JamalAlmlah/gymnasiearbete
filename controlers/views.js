@@ -4,7 +4,7 @@ const ObjectID = require("mongodb").ObjectID;
 /* om oss sida  */
 
 const viewabout = (request, response) => {
-  response.render("about");
+  response.render("about", {layout: "nonemain"});
 };
 /* Sidan för företagets erbjudande */
 
@@ -42,15 +42,39 @@ const viewlogout = (request, response) => {
 /* kontatka oss sida */
 
 const viewkontakta = (request, response) => {
-  response.render("Kontakta");
+  response.render("Kontakta", {layout: "nonemain"});
 };
+const search = async (request, response) => {
+  const search = request.query.search;
+  const db = await connect();
+  const collection = db.collection("deals");
+  const searchresult =  await collection.find({ $text: { $search: search}}).toArray();
+
+  response.render("home", {deals: searchresult} );
+}
 /* kontakta oss sida "post" */
-const skickakontakta = (request, response) => {};
+const skickakontakta = async (request, response) => {
+    const message = {
+
+      firstname: request.body.firstname,
+      lastname: request.body.lastname,
+      email: request.body.email,
+      meddelande: request.body.meddelande
+
+    };
+    const db = await connect();
+    const collection = db.collection("messages");
+    await collection.insertOne(messages);
+    response.sendStatus(204);
+
+  };
+
 module.exports = {
   viewabout,
   viewcompany,
   viewlogout,
   viewkontakta,
   skickakontakta,
-  viewDeal
+  viewDeal,
+  search
 };

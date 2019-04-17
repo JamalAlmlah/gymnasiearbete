@@ -1,9 +1,19 @@
 <div class ="form" >
 <form action="/controlpanel/erbjudande/edit/{{deals._id}}" method="post" >
-  Företags namn: <br /> <input value="{{deals.fnamn}}" type="text" name="fnamn"><br>
-  Erbjudandes title: <br /> <input value ="{{deals.title}}"type="text" name="title"><br>
-  Text:<br> <textarea  name="text" >{{deals.text}} </textarea>
-  <input type="submit" value="Submit">
+  Företags namn: 
+  <br /> 
+  <input value="{{deals.fnamn}}" type="text" name="fnamn"><br>
+  Erbjudandes title: 
+  <br /> 
+  <input value ="{{deals.title}}"type="text" name="title"><br>
+  Pris: 
+  <br />  
+  <input value=" {{deals.pris}}" type="text" name="pris"> <br />
+  Text:
+  <br /> 
+  <textarea  name="text" >{{deals.text}} </textarea>
+
+  <input class ="submit" type="submit" value="Submit">
 </form>
 </div>
  

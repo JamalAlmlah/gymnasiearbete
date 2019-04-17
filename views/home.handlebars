@@ -1,14 +1,12 @@
 <div class ="erbjudande-container">
 <h1> Lättare väg till veckans annonser </h1>
-
 <div class="company-container">
 {{#each deals}}
 <div class ="box"> 
-<p class="title-deal" > {{title}} </p> 
+<a class="title-deal" > {{title}} </a> <br> 
 <a href = "/company/{{fnamn}}" class ="link-text"> {{fnamn}} </a> <br />
-
 <img  src ="/static/uploads/{{bild}}">
-<p> {{excerpt}} </p>
+  <p> {{excerpt}} </p>
 <a href = "/annonser/{{_id}}" class ="read-button"> Läs mer </a> <br />
 </div> 
 {{/each}}

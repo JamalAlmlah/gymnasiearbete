@@ -2,10 +2,9 @@
 <h1 class = "company-title"> {{fnamn}} </h1> 
 
 <div class="company-container">
-  
 {{#each deals}}
 <div class ="box"> 
-<p class ="link-text"> {{title}} </p> <br />
+<a class ="link-text"> {{title}} </a> <br />
 <img src ="/static/uploads/{{bild}}">
 <p> {{excerpt}} </p>
 <a href = "/annonser/{{_id}}" class ="read-button"> Läs mer </a> <br />
