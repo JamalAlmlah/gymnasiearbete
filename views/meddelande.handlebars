@@ -1,18 +1,15 @@
+
+
 <div class="controlpanel-box">
 <div class ="controlpanel-box2"> 
-<p> Meddelande: </p> 
-<button> Ta bort</button>
-</div>
-<div class ="controlpanel-box2"> 
-<p> Meddelande: </p> 
-<button> Ta bort</button>
-</div>
-<div class ="controlpanel-box2"> 
-<p> Meddelande: </p> 
-<button> Ta bort</button>
-</div>
-<div class ="controlpanel-box2"> 
-<p> Meddelande: </p> 
-<button> Ta bort</button>
-</div>
+{{#each messages}}
+
+<div class="row">
+  <div class="column-ms">
+<p class ="link-text">Namn:</p> <p class="link-text-1"> {{firstname}} </p>
+<p class ="link-text">Meddelande: </p> <p class="link-text-1"> {{meddelande}} </p>
+
+  </div>
+ 
+{{/each}}
 </div>

@@ -42,7 +42,7 @@ const viewlogout = (request, response) => {
 /* kontatka oss sida */
 
 const viewkontakta = (request, response) => {
-  response.render("Kontakta", {layout: "nonemain"});
+  response.render("kontakta", {layout: "nonemain"});
 };
 const search = async (request, response) => {
   const search = request.query.search;
@@ -54,7 +54,7 @@ const search = async (request, response) => {
 }
 /* kontakta oss sida "post" */
 const skickakontakta = async (request, response) => {
-    const message = {
+    const messages = {
 
       firstname: request.body.firstname,
       lastname: request.body.lastname,

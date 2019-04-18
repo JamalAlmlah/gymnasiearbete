@@ -184,9 +184,17 @@ display: flex;
   font-size: 25px;
   font-weight: bold;
   text-decoration: none;
-color: rebeccapurple;
+color: #0073aa;
+display: flex;
+margin-left: 10px;
 }
-
+.link-text-1{
+  font-size: 25px;
+  text-decoration: none;
+color: white;
+margin-left: 10px;
+display: flex;
+}
 .search-button{
   width: 70px;
 padding: 2px;
@@ -430,11 +438,20 @@ align-items: center;
   display: flex;
 }
 .column {
-  margin: 5px 0px 5px auto;
-  background-color:#aaa;
+  margin: 2px 0px 2px auto;
+  border: solid 1px black;
+  background-color:#DDDDE5;
   display: flex;
   justify-content: space-between;
 align-items: center;
+}
+.column-ms{
+
+  margin: 2px 0px 2px auto;
+  border: solid 1px black;
+  background-color:#DDDDE5;
+  display: flex;
+  margin-bottom: 5px;
 }
 .controlpanel-box3{
 width: 800px;

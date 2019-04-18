@@ -25,9 +25,12 @@ const createSession = async (request, response) => {
   });
 };
 /* Lista på meddelande som vi får */ 
-const viewmessage = (request, response) => {
+const viewmessage = async (request, response) => {
+  const db = await connect();
+  const collection = db.collection("messages");
+  const messagescp = await collection.find().toArray();
   if (request.cookies && request.cookies.admin) {
-    response.render("meddelande", { layout: "cp" });
+    response.render("meddelande", { messages:messagescp, layout: "cp" });
   } else {
     response.redirect("/controlpanel/login");
   }
