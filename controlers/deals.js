@@ -72,7 +72,10 @@ const viewCreateDeals = (request, response) => {
 const viewDeals = async (request, response) => {
   const db = await connect();
   const collection = db.collection("deals");
-  const dealspost = await collection.find().sort({_id: -1}).toArray();
+  const dealspost = await collection
+    .find()
+    .sort({ _id: -1 })
+    .toArray();
 
   response.render("home", {
     deals: dealspost
@@ -108,6 +111,8 @@ const viewDealscp = async (request, response) => {
   }
 };
 /* ta bort erbjudande från controlpanel */
+
+const hej = "hej";
 
 const deletedeal = async (request, response) => {
   const tabort = request.params._id;
