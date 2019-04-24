@@ -3,13 +3,13 @@ const mongodb = require('mongodb').MongoClient;
 const DB_NAME = 'dealsdb';
 const MONGO_URL = `mongodb://@localhost:27017/${DB_NAME}?authSource=admin`;
 
- const connect = async () => {
-try {
-const client = await mongodb.connect(MONGO_URL, {useNewUrlParser: true});
-return client.db(DB_NAME);
-
+const connect = async () => {
+  try {
+    const client = await mongodb.connect(MONGO_URL, { useNewUrlParser: true });
+    return client.db(DB_NAME);
   } catch (error) {
-  console.log(error);
+    /* eslint-disable no-console */
+    return console.log(error);
   }
 };
 module.exports = connect;
