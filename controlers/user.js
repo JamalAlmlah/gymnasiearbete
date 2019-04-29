@@ -1,5 +1,5 @@
-const bcrypt = require('bcrypt');
-const connect = require('../models/connect');
+const bcrypt = require("bcrypt");
+const connect = require("../models/connect");
 
 /**
  * skapa en användare
@@ -17,11 +17,10 @@ const createUser = async (request, response) => {
       const user = {
         username: request.body.UserName,
         email: request.body.Email,
-        password: hash,
-
+        password: hash
       };
       const db = await connect();
-      const collection = db.collection('users');
+      const collection = db.collection("users");
       try {
         await collection.insertOne(user);
         response.sendStatus(204);
@@ -44,9 +43,9 @@ const createUser = async (request, response) => {
 
 const ucreateUser = (request, response) => {
   if (request.cookies && request.cookies.admin) {
-    response.render('registrera', { layout: 'cp' });
+    response.render("registrera", { layout: "cp" });
   } else {
-    response.redirect('/controlpanel/login');
+    response.redirect("/controlpanel/login");
   }
 };
 module.exports = { createUser, ucreateUser };

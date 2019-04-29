@@ -1,6 +1,5 @@
-
-const { ObjectID } = require('mongodb');
-const connect = require('../models/connect');
+const { ObjectID } = require("mongodb");
+const connect = require("../models/connect");
 
 /**
  * Logga in sida
@@ -14,7 +13,7 @@ const connect = require('../models/connect');
  */
 
 const viewabout = (request, response) => {
-  response.render('about', { layout: 'nonemain' });
+  response.render("about", { layout: "nonemain" });
 };
 
 /**
@@ -30,11 +29,11 @@ const viewabout = (request, response) => {
 const viewcompany = async (request, response) => {
   const { name } = request.params;
   const db = await connect();
-  const collection = db.collection('deals');
+  const collection = db.collection("deals");
   const dealspost = await collection.find({ fnamn: name }).toArray();
-  response.render('company', {
+  response.render("company", {
     deals: dealspost,
-    fnamn: dealspost[0].fnamn,
+    fnamn: dealspost[0].fnamn
   });
 };
 /* visa erbjudande i en ena sida */
@@ -51,11 +50,11 @@ const viewcompany = async (request, response) => {
 const viewDeal = async (request, response) => {
   const { id } = request.params;
   const db = await connect();
-  const collection = db.collection('deals');
+  const collection = db.collection("deals");
   const dealspost = await collection.find({ _id: ObjectID(id) }).toArray();
-  response.render('annonser', {
+  response.render("annonser", {
     deals: dealspost,
-    fnamn: dealspost[0].fnamn,
+    fnamn: dealspost[0].fnamn
   });
 };
 
@@ -71,10 +70,10 @@ const viewDeal = async (request, response) => {
 
 const viewlogout = (request, response) => {
   response.set(
-    'Set-Cookie',
-    'admin=admin; expires=Thu, 01 Jan 1970 00:00:00 GMT',
+    "Set-Cookie",
+    "admin=admin; expires=Thu, 01 Jan 1970 00:00:00 GMT"
   );
-  response.redirect('/controlpanel/login');
+  response.redirect("/controlpanel/login");
 };
 /**
  * kontakta oss sida
@@ -86,7 +85,7 @@ const viewlogout = (request, response) => {
  * @param {object} response http response till webbläsaren
  */
 const viewkontakta = (request, response) => {
-  response.render('kontakta', { layout: 'nonemain' });
+  response.render("kontakta", { layout: "nonemain" });
 };
 
 /**
@@ -102,12 +101,12 @@ const viewkontakta = (request, response) => {
 const search = async (request, response) => {
   const searchquery = request.query.search;
   const db = await connect();
-  const collection = db.collection('deals');
+  const collection = db.collection("deals");
   const searchresult = await collection
     .find({ $text: { $search: searchquery } })
     .toArray();
 
-  response.render('home', { deals: searchresult });
+  response.render("home", { deals: searchresult });
 };
 /**
  * Kontakta oss sida "post"
@@ -124,10 +123,10 @@ const skickakontakta = async (request, response) => {
     firstname: request.body.firstname,
     lastname: request.body.lastname,
     email: request.body.email,
-    meddelande: request.body.meddelande,
+    meddelande: request.body.meddelande
   };
   const db = await connect();
-  const collection = db.collection('messages');
+  const collection = db.collection("messages");
   await collection.insertOne(messages);
   response.sendStatus(204);
 };
@@ -139,5 +138,5 @@ module.exports = {
   viewkontakta,
   skickakontakta,
   viewDeal,
-  search,
+  search
 };

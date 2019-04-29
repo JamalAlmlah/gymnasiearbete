@@ -1,6 +1,6 @@
-const mongodb = require('mongodb').MongoClient;
+const mongodb = require("mongodb").MongoClient;
 
-const DB_NAME = 'dealsdb';
+const DB_NAME = "dealsdb";
 const MONGO_URL = `mongodb://@localhost:27017/${DB_NAME}?authSource=admin`;
 
 const connect = async () => {

@@ -1,5 +1,5 @@
-const bcrypt = require('bcrypt');
-const connect = require('../models/connect');
+const bcrypt = require("bcrypt");
+const connect = require("../models/connect");
 
 /**
  * Logga in sida
@@ -15,21 +15,19 @@ const createSession = async (request, response) => {
   /* eslint-disable no-console */
   console.log(connect);
   const db = await connect();
-  const collection = db.collection('users');
-  const login = await collection.find({ username: request.body.UserName })
+  const collection = db.collection("users");
+  const login = await collection
+    .find({ username: request.body.UserName })
     .toArray();
 
-  bcrypt.compare(request.body.Password, login[0].password, (
-    err,
-    res,
-  ) => {
+  bcrypt.compare(request.body.Password, login[0].password, (err, res) => {
     if (res) {
-      response.set('Set-Cookie', 'admin=true;');
-      response.redirect('/controlpanel');
+      response.set("Set-Cookie", "admin=true;");
+      response.redirect("/controlpanel");
     } else {
-      response.render('login', {
-        layout: 'login',
-        meddelande: 'Fel användernamn eller lösenord',
+      response.render("login", {
+        layout: "login",
+        meddelande: "Fel användernamn eller lösenord"
       });
     }
   });
@@ -47,12 +45,12 @@ const createSession = async (request, response) => {
 
 const viewmessage = async (request, response) => {
   const db = await connect();
-  const collection = db.collection('messages');
+  const collection = db.collection("messages");
   const messagescp = await collection.find().toArray();
   if (request.cookies && request.cookies.admin) {
-    response.render('meddelande', { messages: messagescp, layout: 'cp' });
+    response.render("meddelande", { messages: messagescp, layout: "cp" });
   } else {
-    response.redirect('/controlpanel/login');
+    response.redirect("/controlpanel/login");
   }
 };
 /**
@@ -66,12 +64,11 @@ const viewmessage = async (request, response) => {
  */
 const viewcp = (request, response) => {
   if (request.cookies && request.cookies.admin) {
-    response.render('controlpanel', { layout: 'cp' });
+    response.render("controlpanel", { layout: "cp" });
   } else {
-    response.redirect('/controlpanel/login');
+    response.redirect("/controlpanel/login");
   }
 };
-
 
 /**
  * Logga in sida
@@ -83,9 +80,12 @@ const viewcp = (request, response) => {
  * @param {object} response http response till webbläsaren
  */
 const viewlogin = (request, response) => {
-  response.render('login', { layout: 'login' });
+  response.render("login", { layout: "login" });
 };
 
 module.exports = {
-  createSession, viewmessage, viewcp, viewlogin,
+  createSession,
+  viewmessage,
+  viewcp,
+  viewlogin
 };

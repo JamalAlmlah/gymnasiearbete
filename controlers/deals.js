@@ -1,6 +1,6 @@
-const formidable = require('formidable');
-const { ObjectID } = require('mongodb');
-const connect = require('../models/connect');
+const formidable = require("formidable");
+const { ObjectID } = require("mongodb");
+const connect = require("../models/connect");
 
 /**
  * skapa erbjudande
@@ -14,13 +14,13 @@ const connect = require('../models/connect');
 
 const createDeals = async (request, response) => {
   const form = new formidable.IncomingForm();
-  form.uploadDir = './public/uploads/';
+  form.uploadDir = "./public/uploads/";
   form.keepExtensions = true;
 
   form.parse(request, async (err, fields, files) => {
     if (err) {
       /* eslint-disable no-console */
-      console.log('FIELDS ERROR', err.message);
+      console.log("FIELDS ERROR", err.message);
       return;
     }
     const deals = {
@@ -28,18 +28,18 @@ const createDeals = async (request, response) => {
       text: fields.text,
       fnamn: fields.fnamn,
       pris: fields.pris,
-      bild: files.file.path.split('\\')[2],
-      excerpt: fields.text.slice(0, 100),
+      bild: files.file.path.split("\\")[2],
+      excerpt: fields.text.slice(0, 100)
     };
     const company = {
-      namn: fields.fnamn,
+      namn: fields.fnamn
     };
     const db = await connect();
-    const collection = db.collection('deals');
+    const collection = db.collection("deals");
     await collection.insertOne(deals);
-    const companycollection = db.collection('company');
+    const companycollection = db.collection("company");
     await companycollection.insertOne(company);
-    response.redirect('/controlpanel/skapaerbjudande');
+    response.redirect("/controlpanel/skapaerbjudande");
   });
 };
 
@@ -54,23 +54,23 @@ const createDeals = async (request, response) => {
  */
 const editDeals = async (request, response) => {
   const db = await connect();
-  const collection = db.collection('deals');
+  const collection = db.collection("deals");
   /* eslint-disable no-console */
   console.log({ request: request.params });
   const edit = request.params.id;
   await collection.findOneAndUpdate(
     {
-      _id: ObjectID(edit),
+      _id: ObjectID(edit)
     },
     {
       $set: {
         title: request.body.title,
         text: request.body.text,
-        fnamn: request.body.fnamn,
-      },
-    },
+        fnamn: request.body.fnamn
+      }
+    }
   );
-  response.redirect('/controlpanel/erbjudande');
+  response.redirect("/controlpanel/erbjudande");
 };
 /**
  * skapa ernjudande sida "get"
@@ -84,9 +84,9 @@ const editDeals = async (request, response) => {
 
 const viewCreateDeals = (request, response) => {
   if (request.cookies && request.cookies.admin) {
-    response.render('skapaerbjudande', { layout: 'cp' });
+    response.render("skapaerbjudande", { layout: "cp" });
   } else {
-    response.redirect('/controlpanel/login');
+    response.redirect("/controlpanel/login");
   }
 };
 
@@ -102,14 +102,14 @@ const viewCreateDeals = (request, response) => {
 
 const viewDeals = async (request, response) => {
   const db = await connect();
-  const collection = db.collection('deals');
+  const collection = db.collection("deals");
   const dealspost = await collection
     .find()
     .sort({ _id: -1 })
     .toArray();
 
-  response.render('home', {
-    deals: dealspost,
+  response.render("home", {
+    deals: dealspost
   });
 };
 /**
@@ -125,16 +125,16 @@ const viewDeals = async (request, response) => {
 const vieweditDeals = async (request, response) => {
   const edit = request.params.id;
   const db = await connect();
-  const collection = db.collection('deals');
+  const collection = db.collection("deals");
   const dealspost = await collection.findOne({ _id: ObjectID(edit) });
   console.log({ dealspost });
   if (request.cookies && request.cookies.admin) {
-    response.render('edit', {
+    response.render("edit", {
       deals: dealspost,
-      layout: 'cp',
+      layout: "cp"
     });
   } else {
-    response.redirect('/controlpanel/login');
+    response.redirect("/controlpanel/login");
   }
 };
 
@@ -150,12 +150,12 @@ const vieweditDeals = async (request, response) => {
 
 const viewDealscp = async (request, response) => {
   const db = await connect();
-  const collection = db.collection('deals');
+  const collection = db.collection("deals");
   const dealspost = await collection.find().toArray();
   if (request.cookies && request.cookies.admin) {
-    response.render('erbjudande', { deals: dealspost, layout: 'cp' });
+    response.render("erbjudande", { deals: dealspost, layout: "cp" });
   } else {
-    response.redirect('/controlpanel/login');
+    response.redirect("/controlpanel/login");
   }
 };
 /* ta bort erbjudande från controlpanel */
@@ -172,9 +172,9 @@ const viewDealscp = async (request, response) => {
 const deletedeal = async (request, response) => {
   const tabort = request.params.id;
   const db = await connect();
-  const collection = db.collection('deals');
+  const collection = db.collection("deals");
   await collection.findOneAndDelete({ _id: ObjectID(tabort) });
-  response.redirect('/controlpanel/erbjudande');
+  response.redirect("/controlpanel/erbjudande");
 };
 module.exports = {
   createDeals,
@@ -183,5 +183,5 @@ module.exports = {
   viewDeals,
   vieweditDeals,
   viewDealscp,
-  deletedeal,
+  deletedeal
 };
