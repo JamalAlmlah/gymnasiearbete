@@ -7,6 +7,13 @@
     "start": "nodemon server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "lint-staged": {
+    "./**/*.js": [
+      "prettier --write",
+      "git add",
+      "eslint"
+    ]
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/JamalAlmlah/gymnasiearbete.git"
@@ -20,7 +27,7 @@
   "homepage": "https://github.com/JamalAlmlah/gymnasiearbete#readme",
   "dependencies": {
     "bcrypt": "^3.0.4",
-    "eslint-config-prettier": "^4.1.0",
+    "eslint-config-prettier": "^4.2.0",
     "eslint-plugin-prettier": "^3.0.1",
     "express": "^4.16.4",
     "express-handlebars": "^3.0.0",
@@ -35,7 +42,14 @@
     "eslint-plugin-import": "^2.14.0",
     "eslint-plugin-jsx-a11y": "^6.1.1",
     "eslint-plugin-react": "^7.11.0",
+    "husky": "^2.1.0",
+    "lint-staged": "^8.1.5",
     "nodemon": "^1.18.11",
     "prettier": "1.17.0"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
   }
 }
